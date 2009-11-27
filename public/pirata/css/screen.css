@@ -1,0 +1,21 @@
+body {}
+
+div, h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0; margin: 0;}
+h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; margin: 0;}
+
+/* template css */
+.c:after {content: "."; clear: both; display: block; visibility: hidden; height: 0;}
+.left {clear: none; float: left;}
+.right {clear: none; float: right;}
+.rel {position: relative;}
+.abs {position: absolute;}
+table, table th, table tr, table td {width: 100%; margin: 0; padding: 0; border: none; text-align: left; vertical-align: top;}
+
+#container {width: 763px; margin: 0 auto;}
+
+#header {}
+
+
+#content_area {}
+#content_area #content {width: 533px; border-right: 1px solid #ccc; padding: 15px;}
+#content_area #sidebar {width: 199px;}
