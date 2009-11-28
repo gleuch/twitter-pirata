@@ -1,12 +1,11 @@
 - get_recipient_info if @recipient_info.blank?
 
 - unless @recipient_info.blank?
-  - #p @recipient_info
   %style{:type => 'text/css'}
     - css = {'body' => [], 'sidebar' => [], 'sidebar_box' => [], 'a' => [], 'content' => []}
     - css['body'] << 'background-position: top left;'
     - css['body'] << "background-repeat: #{@recipient_info['profile_background_tile'] ? 'repeat' : 'repeat-x'};"
-    - css['body'] << "background-image: url(#{@recipient_info['profile_background_image_url']});" unless @recipient_info['profile_background_image_url'].blank?
+    - css['body'] << "background-image: #{@recipient_info['profile_background_image_url'].blank? || @recipient_info['profile_background_image_url'].match(/(.*)(themes\/theme1\/bg\.png)$/i) ? 'none' : "url(#{@recipient_info['profile_background_image_url']})"};"
     - css['body'] << "background-color: ##{@recipient_info['profile_background_color']};" unless @recipient_info['profile_background_color'].blank?
     - css['sidebar'] << "background-color: ##{@recipient_info['profile_sidebar_fill_color']};" unless @recipient_info['profile_sidebar_fill_color'].blank?
     - css['sidebar'] << "border-left-color: ##{@recipient_info['profile_sidebar_border_color']};" unless @recipient_info['profile_sidebar_border_color'].blank?
