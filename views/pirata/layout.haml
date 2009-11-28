@@ -27,6 +27,12 @@
                 %a{:href => '/'} Home
               %li
                 %a{:href => '/'} About
+              - if configatron.require_oauth_login
+                %li
+                  - unless @user.blank?
+                    %a{:href => '/logout'} Logout
+                  - else
+                    %a{:href => '/connect'} Troll Now!
         
 
       - unless @content_for_notice.blank?

@@ -1,8 +1,18 @@
+- get_recipient_info if @recipient_info.blank?
+
 - unless @recipient_info.blank?
   - #p @recipient_info
   %style{:type => 'text/css'}
-    :plain
-      body {background-position: top left; background-repeat: #{@recipient_info['profile_background_tile'] ? 'repeat' : 'repeat-x'}; background-image: url(#{@recipient_info['profile_background_image_url']}); background-color: ##{@recipient_info['profile_background_color']};}
-      #content_area #sidebar {background-color: ##{@recipient_info['profile_sidebar_fill_color']}; border-left-color: ##{@recipient_info['profile_sidebar_border_color']};}
-      a {color: ##{@recipient_info['profile_link_color']};}
-      #content {color: ##{@recipient_info['profile_text_color']};}
+    - css = {'body' => [], 'sidebar' => [], 'a' => [], 'content' => []}
+    - css['body'] << 'background-position: top left;'
+    - css['body'] << "background-repeat: #{@recipient_info['profile_background_tile'] ? 'repeat' : 'repeat-x'};"
+    - css['body'] << "background-image: url(#{@recipient_info['profile_background_image_url']});" unless @recipient_info['profile_background_image_url'].blank?
+    - css['body'] << "background-color: ##{@recipient_info['profile_background_color']};" unless @recipient_info['profile_background_background_color'].blank?
+    - css['sidebar'] << "background-color: ##{@recipient_info['profile_sidebar_fill_color']};" unless @recipient_info['profile_sidebar_fill_color'].blank?
+    - css['sidebar'] << "border-left-color: ##{@recipient_info['profile_sidebar_border_color']};" unless @recipient_info['profile_sidebar_border_color'].blank?
+    - css['a'] << "color: ##{@recipient_info['profile_link_color']};" unless @recipient_info['profile_link_color'].blank?
+    - css['join'] << "color: ##{@recipient_info['profile_text_color']};" unless @recipient_info['profile_text_color'].blank?
+    body {#{css['body'].join(' ')}}
+    \#content_area #sidebar {#{css['sidebar'].join(' ')}}
+    a {#{css['a'].join(' ')}}
+    \#content {#{css['content'].join(' ')}}

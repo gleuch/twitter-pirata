@@ -1,3 +1,6 @@
+- get_recipient_info if @recipient_info.nil?
+- get_recipient_followers if @recipient_followers.nil?
+
 #account_info.box
   %dl
     - unless @recipient_info.blank?
@@ -35,7 +38,7 @@
           .num= @recipient_info['description']
           listed
 
-  .nav
+  .blocks
     %a.block.c{:href => "#"}
       Tweets
       - unless @recipient_info.blank?
@@ -52,7 +55,7 @@
 #account_following.box
   %dl
     %dt Following
-    - unless @recipient_info.blank?
+    - unless @recipient_followers.blank?
       - 30.times do |i|
         %dd.photo
           %a{:href => "#"} box #{i}
