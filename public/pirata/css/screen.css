@@ -1,7 +1,9 @@
-body {}
+* { border: 0; padding: 0; margin: 0; }
+body {background: #c0deed url(http://s.twimg.com/images/bg-clouds.png) repeat-x; color: #333; font: 12px Lucida Grande, Arial, sans-serif; text-align: left;}
 
 div, h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0; margin: 0;}
-h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; margin: 0;}
+h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; margin: 0; color: #000; vertical-align: baseline;}
+a img {border: none;}
 
 /* template css */
 .c:after {content: "."; clear: both; display: block; visibility: hidden; height: 0;}
@@ -9,13 +11,49 @@ h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; marg
 .right {clear: none; float: right;}
 .rel {position: relative;}
 .abs {position: absolute;}
-table, table th, table tr, table td {width: 100%; margin: 0; padding: 0; border: none; text-align: left; vertical-align: top;}
 
-#container {width: 763px; margin: 0 auto;}
+.round {border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+.round-tl {border-radius-topleft: 5px; -moz-border-radius-topleft: 5px; -webkit-border-radius-topleft: 5px;}
+.round-tr {border-radius-topright: 5px; -moz-border-radius-topright: 5px; -webkit-border-radius-topright: 5px;}
+.round-bl {border-radius-bottomleft: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-radius-bottomleft: 5px;}
+.round-br {border-radius-bottomright: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-radius-bottomright: 5px;}
 
-#header {}
+.header {font-family: Helvetica Neue, Helvetica, Arial, sans-serif;}
+p.suggest {text-align: center; padding: 30px 20px; font-size: 15px;}
+
+table, table th, table tr, table td {width: 100%; margin: 0; padding: 0; border: none; text-align: left; vertical-align: top; border-collapse: collapse;}
 
 
-#content_area {}
-#content_area #content {width: 533px; border-right: 1px solid #ccc; padding: 15px;}
-#content_area #sidebar {width: 199px;}
+
+a {color: #2276bb; text-decoration: none;}
+a:hover {color: #2276bb; text-decoration: underline;}
+
+
+#container {width: 763px; margin: 0 auto; padding: 0 0 16px 0;}
+
+#header {padding: 12px 0 0 0; text-align: left;}
+
+
+#notice {margin: 41px 0 12px 0; border: 1px solid #ffff00; background: #ffffdf; padding: 20px;}
+#notice .bird {width: 48px; height: 48px; top: -41px; left: 0;}
+
+#content_area {margin: 12px 0 0 0; padding: 11px 0 0 0; background: url(../images/bubble_arrow.png) 25px 0 no-repeat;}
+#content_area #content {width: 533px; padding: 15px; background-color: #ffffff;}
+#content_area #sidebar {width: 199px; background-color: #daebf3; border-left: 1px solid #c0deed; padding: 6px 0;}
+
+
+#content .titlebar {padding: 10px 10px 0 10px;}
+#content .titlebar .avatar {width: 73px; height: 73px; margin: 0 10px 0 0;}
+#content .titlebar h1.name {width: 430px; font-size: 34px; padding: 0;}
+
+#content_box {padding: 0 0 10px 0;}
+#content_body {padding: 6px 10px;}
+#content_body .section.header {font-weight: normal; padding: 0 0 3px 0; margin: 3px 0 4px 0; color: #444;}
+#content_body h3 {font-size: 18px; line-height: 26px;}
+#content_body p.suggest {border-top: 1px solid #eee;}
+
+#sidebar .box {padding: 3px 10px 10px 12px;} 
+
+#footer {margin: 20px 0 0 0; background: #fff; padding: 8px 0; text-align: center;}
+#footer ul, #footer ul li {margin: 0; padding: 0; display: inline; list-style: none;}
+#footer ul li {padding: 0 3px;}

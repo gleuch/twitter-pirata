@@ -1,3 +1,5 @@
+%h3.section.header Home
+
 - unless @recipient_stream.blank?
   - @recipient_stream.each do |status|
 
@@ -18,7 +20,7 @@
             in reply to
           - unless status['source'].blank?
             from #{status['source']}
-      
-  
+
+
 - else
-  %p.suggest Your stream is blank!
+  %p.suggest #{possessiveify configatron.twitter_account_name} stream is blank!

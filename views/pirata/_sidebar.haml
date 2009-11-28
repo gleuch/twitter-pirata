@@ -1,38 +1,45 @@
 #account_info.box
   %dl
-    - unless @recipient_info['name'].blank?
+    - unless @recipient_info.blank?
+      - unless @recipient_info['name'].blank?
+        %dd
+          %strong Name
+          = @recipient_info['name']
+      - unless @recipient_info['location'].blank?
+        %dd
+          %strong Location
+          = @recipient_info['location']
+      - unless @recipient_info['url'].blank?
+        %dd
+          %strong Web
+          = @recipient_info['url']
+      - unless @recipient_info['description'].blank?
+        %dd
+          %strong Bio
+          = @recipient_info['description']
+    - else
       %dd
         %strong Name
-        = @recipient_info['name']
-    - unless @recipient_info['location'].blank?
-      %dd
-        %strong Location
-        = @recipient_info['location']
-    - unless @recipient_info['url'].blank?
-      %dd
-        %strong Web
-        = @recipient_info['url']
-    - unless @recipient_info['description'].blank?
-      %dd
-        %strong Bio
-        = @recipient_info['description']
+        = configatron.twitter_account_name
 
-  #account_stats.c
-    .left
-      .num= @recipient_info['friends_count']
-      following
-    .left
-      .num= @recipient_info['followers_count']
-      followers
-    - if false
+  - unless @recipient_info.blank?
+    #account_stats.c
       .left
-        .num= @recipient_info['description']
-        listed
+        .num= @recipient_info['friends_count']
+        following
+      .left
+        .num= @recipient_info['followers_count']
+        followers
+      - if false
+        .left
+          .num= @recipient_info['description']
+          listed
 
   .nav
     %a.block.c{:href => "#"}
       Tweets
-      .r= @recipient_info['statuses_count']
+      - unless @recipient_info.blank?
+        .r= @recipient_info['statuses_count']
     %a.block{:href => "#"} Favorites
 
 #account_lists.box
@@ -45,11 +52,14 @@
 #account_following.box
   %dl
     %dt Following
-    - 30.times do |i|
-      %dd
-        %a{:href => "#"} box #{i}
+    - unless @recipient_info.blank?
+      - 30.times do |i|
+        %dd
+          %a{:href => "#"} box #{i}
+    - else
+      %dd.suggest Could not load followers.
     %dd.smaller
       %a{:href => "#"} View All
 
 #account_rss.box
-  %a.inblock.rss{:href => "#"} RSS Feed of #{configatron.twitter_account_name}'s tweets
+  %a.inblock.rss{:href => "#"} RSS Feed of #{possessiveify configatron.twitter_account_name} tweets
