@@ -1,5 +1,5 @@
 - get_recipient_info if @recipient_info.nil?
-- get_recipient_followers if @recipient_followers.nil?
+- get_recipient_friends if @recipient_friends.nil?
 
 #account_info.box
   %dl
@@ -52,13 +52,14 @@
     %dd
       %a{:href => '#'} @name/fffffat
 
-#account_following.box
+#account_friends.box
   %dl
     %dt Following
-    - unless @recipient_followers.blank?
-      - 30.times do |i|
-        %dd.photo
-          %a{:href => "#"} box #{i}
+    - if false
+      - unless @recipient_friends.blank?
+        - 30.times do |i|
+          %dd.photo
+            %a{:href => "#"} box #{i}
     - else
       %dd.suggest Could not load followers.
     %dd.smaller
