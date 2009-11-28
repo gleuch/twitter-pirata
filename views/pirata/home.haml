@@ -5,11 +5,11 @@
   - @content_for_notice = capture_haml do
     .c
       .left
-        %h1 Hey there! <strong>#{configatron.twitter_account_name}</strong> is using Troll Baby Troll.
-        %p Troll Baby Troll is a free service that lets you troll internets users, politicians, celebrities, trolls and even yourself, through the exchange of quick, pointless and frequents statements. Trolling is Serious Business.
+        %h1= configatron.welcome_title.gsub(/\%t/, configatron.twitter_account_name).gsub(/\%s/, configatron.site_name)
+        %p= configatron.welcome_message.gsub(/\%s/, configatron.site_name)
       .right
         %p
-          %a.button{:href => '/connect'} Troll by logging in via Twitter
+          %a.button{:href => '/connect'}= configatron.welcome_button
 
   = partial('guest_user_titlebar', :cache => true)
 

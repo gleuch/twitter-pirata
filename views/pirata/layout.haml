@@ -24,15 +24,15 @@
           #nav.nav.round.abs
             %ul
               %li
-                %a{:href => '/'} Home
+                %a{:href => '/'}= configatron.nav_home
               %li
-                %a{:href => '/'} About
+                %a{:href => '/'}= configatron.nav_about
               - if configatron.require_oauth_login
                 %li
                   - unless @user.blank?
-                    %a{:href => '/logout'} Logout
+                    %a{:href => '/logout'}= configatron.nav_logout
                   - else
-                    %a{:href => '/connect'} Troll Now!
+                    %a{:href => '/connect'}= configatron.nav_login
         
 
       - unless @content_for_notice.blank?

@@ -2,7 +2,7 @@
 body {background: #c0deed url(http://s.twimg.com/images/bg-clouds.png) repeat-x; color: #333; font: 12px Lucida Grande, Arial, sans-serif; text-align: left;}
 
 div, h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0; margin: 0;}
-h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; margin: 0; color: #000; vertical-align: baseline;}
+h1, h2, h3, h4, h5, h6, p {clear: both; display: block; padding: 0 0 8px 0; margin: 0; color: #000; vertical-align: top;}
 a img {border: none;}
 
 /* template css */
@@ -11,6 +11,10 @@ a img {border: none;}
 .right {clear: none; float: right;}
 .rel {position: relative;}
 .abs {position: absolute;}
+.hide {display: none;}
+.block {display: block;}
+.inblock {display: inline-block;}
+.inline {display: inline;}
 
 .round {border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
 .round-tl {border-radius-topleft: 5px; -moz-border-radius-topleft: 5px; -webkit-border-radius-topleft: 5px;}
@@ -27,7 +31,7 @@ p.suggest {text-align: center; padding: 30px 20px; font-size: 15px;}
 
 table, table th, table tr, table td {width: 100%; margin: 0; padding: 0; border: none; text-align: left; vertical-align: top; border-collapse: collapse;}
 
-
+.rss.inblock {background: url(http://s.twimg.com/a/1259091217/images/rss.gif) 0 1px no-repeat; padding-left: 20px; min-height: 17px;}
 
 a {color: #2276bb; text-decoration: none;}
 a:hover {color: #2276bb; text-decoration: underline;}
@@ -40,6 +44,10 @@ a:hover {color: #2276bb; text-decoration: underline;}
 
 #notice {margin: 41px 0 12px 0; border: 1px solid #ffff00; background: #ffffdf; padding: 20px;}
 #notice .bird {width: 48px; height: 48px; top: -41px; left: 0;}
+#notice h1 {font-weight: normal; font-size: 26px;}
+#notice p {font-size: 16px;}
+#notice .left {width: 495px;}
+#notice .right {width: 175px; margin: 0 0 0 50px;}
 
 #content_area {margin: 12px 0 0 0; padding: 11px 0 0 0; background: url(../images/bubble_arrow.png) 25px 0 no-repeat;}
 #content_area #content {width: 533px; padding: 15px; background-color: #ffffff;}
@@ -56,6 +64,25 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #content_body h3 {font-size: 18px; line-height: 26px;}
 #content_body p.suggest {border-top: 1px solid #eee;}
 
-#sidebar .box {padding: 3px 10px 10px 12px;} 
+
+#sidebar .box {padding: 9px 0 10px 0; margin: 0 14px 0 14px; border-top: 1px solid #c0deed;}
+#sidebar .box:first-child {border-top: none; padding-top: 3px;}
+
+#sidebar #account_info dl dd {padding: 0 0 2px 0;}
+
+#sidebar #account_stats {padding: 8px 0 12px 0;}
+#sidebar #account_stats a {width: 48px; font-size: 11px; padding: 0 0 0 8px;}
+#sidebar #account_stats a:first-child {padding: 0;}
+#sidebar #account_stats a:hover {text-decoration: none;}
+#sidebar #account_stats a:hover span {text-decoration: underline;}
+#sidebar #account_stats a .num {font-weight: bold; color: #333; font-size: 13px;}
+#sidebar #account_stats a:hover .num {color: #2276bb;}
+
+#sidebar #account_links {padding: 0 0 6px 0;}
+#sidebar #account_links a.block {color: #2276bb; padding: 6px 14px; margin: 0 0 1px 0;}
+#sidebar #account_links a.block:hover {color: #2276bb; text-decoration: none; background: #f7f7f7;}
+#sidebar #account_links a.block.select {color: #333; font-weight: bold; background: #f7f7f7;}
+
 
 #footer {margin: 20px 0 0 0;}
+
