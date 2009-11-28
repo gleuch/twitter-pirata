@@ -54,7 +54,7 @@
     %dt Following
     - unless @recipient_info.blank?
       - 30.times do |i|
-        %dd
+        %dd.photo
           %a{:href => "#"} box #{i}
     - else
       %dd.suggest Could not load followers.

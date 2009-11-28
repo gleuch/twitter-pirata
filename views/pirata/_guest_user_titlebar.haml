@@ -1,0 +1,7 @@
+.titlebar.c
+  .avatar.left
+    - unless @recipient_info.blank?
+      %img{:src => @recipient_info['profile_image_url'].gsub(/\_normal/i, '_bigger'), :title => '', :alt => ''}
+    - else
+      %img{:src => "http://s.twimg.com/a/1259091217/images/default_profile_#{rand(5)}_bigger.png", :title => '', :alt => ''}
+  %h1.name.header.left= configatron.twitter_account_name

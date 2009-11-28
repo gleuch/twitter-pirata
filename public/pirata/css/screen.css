@@ -21,6 +21,10 @@ a img {border: none;}
 .header {font-family: Helvetica Neue, Helvetica, Arial, sans-serif;}
 p.suggest {text-align: center; padding: 30px 20px; font-size: 15px;}
 
+.nav {background: #fff; padding: 8px 0; text-align: center;}
+.nav ul, .nav ul li {margin: 0; padding: 0; display: inline; list-style: none;}
+.nav ul li {padding: 0 3px;}
+
 table, table th, table tr, table td {width: 100%; margin: 0; padding: 0; border: none; text-align: left; vertical-align: top; border-collapse: collapse;}
 
 
@@ -32,7 +36,7 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #container {width: 763px; margin: 0 auto; padding: 0 0 16px 0;}
 
 #header {padding: 12px 0 0 0; text-align: left;}
-
+#header #nav {top: 12px; right: 0; padding: 8px;}
 
 #notice {margin: 41px 0 12px 0; border: 1px solid #ffff00; background: #ffffdf; padding: 20px;}
 #notice .bird {width: 48px; height: 48px; top: -41px; left: 0;}
@@ -54,6 +58,4 @@ a:hover {color: #2276bb; text-decoration: underline;}
 
 #sidebar .box {padding: 3px 10px 10px 12px;} 
 
-#footer {margin: 20px 0 0 0; background: #fff; padding: 8px 0; text-align: center;}
-#footer ul, #footer ul li {margin: 0; padding: 0; display: inline; list-style: none;}
-#footer ul li {padding: 0 3px;}
+#footer {margin: 20px 0 0 0;}

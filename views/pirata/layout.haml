@@ -16,11 +16,11 @@
 
   %body
     #container
-      #header
+      #header.rel
         #logo
           %a{:href => '/'}
             %img{:src => "/images/logo.png", :title => configatron.site_name}
-        - if false
+        - if true
           #nav.nav.round.abs
             %ul
               %li
@@ -28,10 +28,10 @@
                 %a{:href => '/'} About
         
 
-      - if configatron.require_oauth_login && @user.blank?
+      - unless @content_for_notice.blank?
         #notice.box.rel
           %img.bird.abs{:src => 'http://a0.twimg.com/a/1259091217/images/profile_bird.png', :title => '', :alt => ''}
-          = partial('guest_user_notice', :cache => true)
+          = @content_for_notice
 
       #content_area
         %table

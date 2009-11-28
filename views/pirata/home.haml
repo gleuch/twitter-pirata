@@ -1,7 +1,21 @@
 - unless !@error || @error.blank?
   %p.flash.error= @error
 
-- unless configatron.require_oauth_login && @user.blank?
+- if configatron.require_oauth_login && @user.blank?
+  - @content_for_notice = capture_haml do
+    .c
+      .left
+        %h1 Hey there! <strong>#{configatron.twitter_account_name}</strong> is using Troll Baby Troll.
+        %p Troll Baby Troll is a free service that lets you troll internets users, politicians, celebrities, trolls and even yourself, through the exchange of quick, pointless and frequents statements. Trolling is Serious Business.
+      .right
+        %p
+          %a.button{:href => '/connect'} Troll by logging in via Twitter
+
+
+  = partial('guest_user_titlebar', :cache => true)
+
+
+- else
   .titlebar.c
     %h1.left Troll me!
     .right.chars= (140-(params[:tweet] || '').length)
