@@ -1,7 +1,7 @@
 !!! Strict
 %html{:xmlns => 'http://www.w3.org/1999/xhtml', :'xml:lang' => configatron.site_language, :lang => configatron.site_language}
   %head
-    %title= (@title ? "#{@title} / " : '') + "#{configatron.site_name}"
+    %title= (@title ? @title : configatron.site_name).gsub(/\%s/, configatron.site_name).gsub(/\%t/, configatron.twitter_account_name)
     %meta{:"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8'}
     %meta{:name => 'keywords', :content => configatron.meta_keywords.gsub(/\%t/, configatron.site_name)}
     %meta{:name => 'description', :content => configatron.meta_description.gsub(/\%t/, configatron.site_name)}
@@ -20,19 +20,19 @@
         #logo
           %a{:href => '/'}
             %img{:src => "/images/logo.png", :title => configatron.site_name}
-        - if true
-          #nav.nav.round.abs
-            %ul
+        #nav.nav.round.abs
+          %ul
+            %li
+              %a{:href => '/'}= configatron.nav_home
+            %li
+              %a{:href => '/about'}= configatron.nav_about
+
+            - if configatron.require_oauth_login
               %li
-                %a{:href => '/'}= configatron.nav_home
-              %li
-                %a{:href => '/'}= configatron.nav_about
-              - if configatron.require_oauth_login
-                %li
-                  - unless @user.blank?
-                    %a{:href => '/logout'}= configatron.nav_logout
-                  - else
-                    %a{:href => '/connect'}= configatron.nav_login
+                - unless @user.blank?
+                  %a{:href => '/logout'}= configatron.nav_logout
+                - else
+                  %a{:href => '/connect'}= configatron.nav_login
         
 
       - unless @content_for_notice.blank?
@@ -57,10 +57,10 @@
                   = yield
 
                 #content_body
-                  = partial('stream', :cache => true)
+                  = partial('stream', :cache => true) unless @hide_stream
 
               %td#sidebar.round-tr.round-br
-                = partial('sidebar', :cache => true)
+                = partial('sidebar', :cache => true) unless @hide_sidebar
 
       #footer.nav.round
         %ul

@@ -1,0 +1,7 @@
+- get_recipient_info if @recipient_info.nil?
+- #p @recipient_info
+
+- if @recipient_info && !@recipient_info['status'].blank?
+  %strong Latest:
+  = @recipient_info['status']['text']
+  %span.timestamp timestamp

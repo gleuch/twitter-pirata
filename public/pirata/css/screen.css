@@ -54,19 +54,41 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #content_area #sidebar {width: 199px; background-color: #daebf3; border-left: 1px solid #c0deed; padding: 6px 0;}
 
 
-#content .titlebar {padding: 10px 10px 0 10px;}
-#content .titlebar .avatar {width: 73px; height: 73px; margin: 0 10px 0 0;}
-#content .titlebar h1.name {width: 430px; font-size: 34px; padding: 0;}
+#content .user_titlebar {padding: 10px 10px 0 10px;}
+#content .user_titlebar .avatar {width: 73px; height: 73px; margin: 0 10px 0 0;}
+#content .user_titlebar h1.name {width: 430px; font-size: 34px; padding: 0;}
+#content .titlebar {padding: 5px 13px 0 10px;}
+#content .titlebar h1 {font-size: 22px; padding: 0; line-height: 22px;}
+#content .section.header {font-weight: normal; padding: 0 0 3px 0; margin: 3px 0 4px 0; color: #444;}
+#content h3 {font-size: 18px; line-height: 26px;}
 
 #content_box {padding: 0 0 10px 0;}
+#content_box textarea#tweet {border: 1px solid #aaa; width: 505px; padding: 4px 2px; height: 35px; font: 14px/16px Lucida Grande, Arial, sans-serif;}
+#content_box fieldset {padding: 1px 0 0 10px;}
+#content_box fieldset.buttons {padding: 5px 12px 0 10px;}
+#content_box fieldset.buttons .left {color: #666; font-size: 11px; line-height: 16px;}
+#content_box fieldset.buttons button {font-size: 14px; color: #666; background: #f0f0f0; padding: 6px 20px; text-transform: lowercase; border: 1px solid #d9d9d9; border-left-color: #ebebeb; border-top-color: #ebebeb; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; cursor: pointer;}
+#content_box fieldset.buttons button:hover {background: #e3e3e3; color: #444; border-color: #b8b8b8; border-left-color: #d1d1d1; border-top-color: #d1d1d1;}
+#content_box fieldset.buttons button[disabled], #content_box fieldset.buttons button.disabled {color: #aaa; border: 1px solid #d9d9d9; border-left-color: #ebebeb; border-top-color: #ebebeb; background: #f0f0f0; cursor: auto;}
+#content_box #chars_left {font-size: 26px; line-height: 26px; color: #ccc; font-weight: 500; letter-spacing: -.03em; text-align: right;}
+#content_box #chars_left .warm {color: #5c0002;}
+#content_box #chars_left .hot {color: #d40d12;}
+
 #content_body {padding: 6px 10px;}
-#content_body .section.header {font-weight: normal; padding: 0 0 3px 0; margin: 3px 0 4px 0; color: #444;}
-#content_body h3 {font-size: 18px; line-height: 26px;}
+
 #content_body p.suggest {border-top: 1px solid #eee;}
 
 
 #sidebar .box {padding: 9px 0 10px 0; margin: 0 14px 0 14px; border-top: 1px solid #c0deed;}
 #sidebar .box:first-child {border-top: none; padding-top: 3px;}
+#sidebar .box dl dt {clear: both; float: none; width: 100%; padding: 0 0 4px 0;}
+#sidebar .box dl dd {clear: both; float: none; width: 100%; padding: 2px 0;}
+#sidebar .box dl dd.smaller {padding-top: 6px; font-size: 11px;}
+
+#sidebar .box dl dd.photo {clear: none; float: left; width: 24px; height: 24px; padding: 3px 3px 3px 1px;}
+#sidebar .box dl dd.photo img {width: 24px; height: 24px; overflow: hidden;}
+
+#sidebar #account_lists.box dl dd {padding: 4px 0;}
 
 #sidebar #account_info dl dd {padding: 0 0 2px 0;}
 

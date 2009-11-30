@@ -16,8 +16,9 @@
 
 - else
   .titlebar.c
-    %h1.left Troll me!
-    .right.chars= (140-(params[:tweet] || '').length)
+    %h1.section.header.left Troll me!
+    #chars_left.chars.header.right
+      %span=(140-(params[:tweet] || '').length)
     
   %form#tweet_box{:action => '/', :method => 'post'}
     %input{:type => 'hidden', :name => 'auth_token', :value => ''}
@@ -26,8 +27,5 @@
       %label{:for => 'tweet'}
       %textarea#tweet{:name => 'tweet'}= params[:tweet]
     %fieldset.buttons.c
-      .left
-        %strong Latest:
-        \- tweet here -
-          
-      %input.right{:type => 'submit', :value => configatron.button_submit}
+      .left= partial('latest_tweet', :cache => true)
+      %button#tweet_submit.right= configatron.button_submit

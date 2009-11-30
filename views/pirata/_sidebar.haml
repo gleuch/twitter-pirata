@@ -1,5 +1,6 @@
 - get_recipient_info if @recipient_info.nil?
 - get_recipient_friends if @recipient_friends.nil?
+- get_recipient_lists if @recipient_lists.nil?
 
 #account_info.box
   %dl
@@ -45,23 +46,27 @@
       .header.right= commify(@recipient_info['statuses_count'])
   %a.block{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/favorites"}= configatron.sidebar_favorites
 
-#account_lists.box
-  %dl
-    %dt= configatron.sidebar_lists
-    - if true
-      %dd
-        %a{:href => '#'} @name/fffffat
+- unless !@recipient_lists['lists'] || @recipient_lists['lists'].blank?
+  #account_lists.box
+    %dl
+      %dt= configatron.sidebar_lists
+      - @recipient_lists['lists'][0..5].each do |list|
+        %dd
+          %a{:href => "http://www.twitter.com#{list['uri']}"}= list['full_name']
+      - if @recipient_lists['lists'].length > 6
+        %dd.smaller
+          %a{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/lists"}= configatron.view_all
 
 #account_friends.box
   %dl
     %dt= configatron.sidebar_following
-    - if false
-      - unless @recipient_friends.blank?
-        - 30.times do |i|
-          %dd.photo
-            %a{:href => "#"} box #{i}
+    - unless @recipient_friends.blank?
+      - @recipient_friends[0..29].each do |friend|
+        %dd.photo
+          %a{:href => "http://www.twitter.com/#{friend['screen_name']}"}
+            %img{:src => friend['profile_image_url'].gsub(/\_normal(\.[A-Z]+)$/i, '_mini\1'), :title => friend['screen_name'], :alt => friend['screen_name']}
     - else
-      %dd.suggest= configatron.sidebar_no_followers
+      %dd.suggest= configatron.sidebar_no_friends
     %dd.smaller
       %a{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/following"}= configatron.view_all
 
