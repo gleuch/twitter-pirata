@@ -9,14 +9,14 @@
         %p= configatron.welcome_message.gsub(/\%s/, configatron.site_name)
       .right
         %p
-          %a.button{:href => '/connect'}= configatron.welcome_button
+          %a.button.round{:href => '/connect'}= configatron.welcome_button
 
   = partial('guest_user_titlebar', :cache => true)
 
 
 - else
   .titlebar.c
-    %h1.section.header.left Troll me!
+    %h1.section.header.left= configatron.action_header
     #chars_left.chars.header.right
       %span=(140-(params[:tweet] || '').length)
     

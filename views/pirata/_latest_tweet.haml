@@ -1,7 +1,6 @@
 - get_recipient_info if @recipient_info.nil?
-- #p @recipient_info
 
 - if @recipient_info && !@recipient_info['status'].blank?
-  %strong Latest:
+  %strong= configatron.latest
   = @recipient_info['status']['text']
-  %span.timestamp timestamp
+  %span.timestamp= timestamp(@recipient_info['status'], false)
