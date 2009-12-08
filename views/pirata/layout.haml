@@ -10,11 +10,12 @@
     %link{:href => "http://a1.twimg.com/a/1258674567/images/twitter_57.png", :rel => "apple-touch-icon"}
     %link{:href=>'/css/screen.css', :media=>'all', :rel =>'stylesheet', :type=>'text/css'}
     %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js'}
+    %script{:type => 'text/javascript', :src => '/js/jquery.timeago.js'}
     %script{:type => 'text/javascript', :src => '/js/application.js'}
 
     = partial('user_styles', :cache => true)
 
-  %body
+  %body{:class => (configatron.require_oauth_login && !@user.blank? ? 'logged_in' : '')}
     #container
       #header.rel
         #logo
@@ -67,3 +68,7 @@
           %li.first trollbabytroll is a <a href="http://www.fffff.at">F.A.T. Production</a> for the lulz. No rights reserved.
           %li
             %a{:href => 'http://www.github.com/gleuch/twitter-pirata'} Grab the Code.
+
+    - unless dev? || configatron.ga_code.blank?
+      %script{:type => "text/javascript"} var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      %script{:type => "text/javascript"} try {var pageTracker = _gat._getTracker("#{configatron.ga_code}"); pageTracker._trackPageview();} catch(err) {}

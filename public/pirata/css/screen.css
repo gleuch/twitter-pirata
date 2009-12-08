@@ -48,6 +48,8 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #notice p {font-size: 16px;}
 #notice .left {width: 495px;}
 #notice .right {width: 175px; margin: 0 0 0 50px;}
+#notice .right a {display: block; background-color: #74CA00; font-size: 24px; color: #fff; font-weight: bold; margin: 20px 0 10px 0; padding: 10px; border: 1px solid #0f0; text-align: center;}
+#notice .right a:hover {background-color: #8CF500; text-decoration: none;}
 
 #content_area {margin: 12px 0 0 0; padding: 11px 0 0 0; background: url(../images/bubble_arrow.png) 25px 0 no-repeat;}
 #content_area #content {width: 533px; padding: 15px; background-color: #ffffff;}
@@ -66,7 +68,7 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #content_box textarea#tweet {border: 1px solid #aaa; width: 505px; padding: 4px 2px; height: 35px; font: 14px/16px Lucida Grande, Arial, sans-serif;}
 #content_box fieldset {padding: 1px 0 0 10px;}
 #content_box fieldset.buttons {padding: 5px 12px 0 10px;}
-#content_box fieldset.buttons .left {color: #666; font-size: 11px; line-height: 16px;}
+#content_box fieldset.buttons .left {width: 400px; color: #666; font-size: 11px; line-height: 16px;}
 #content_box fieldset.buttons button {font-size: 14px; color: #666; background: #f0f0f0; padding: 6px 20px; text-transform: lowercase; border: 1px solid #d9d9d9; border-left-color: #ebebeb; border-top-color: #ebebeb; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; cursor: pointer;}
 #content_box fieldset.buttons button:hover {background: #e3e3e3; color: #444; border-color: #b8b8b8; border-left-color: #d1d1d1; border-top-color: #d1d1d1;}
 #content_box fieldset.buttons button[disabled], #content_box fieldset.buttons button.disabled {color: #aaa; border: 1px solid #d9d9d9; border-left-color: #ebebeb; border-top-color: #ebebeb; background: #f0f0f0; cursor: auto;}
@@ -77,6 +79,25 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #content_body {padding: 6px 10px;}
 
 #content_body p.suggest {border-top: 1px solid #eee;}
+
+#content_body #user_stream {border-top: 1px solid #eee;}
+#content_body .status {border-bottom: 1px solid #eee; padding: 10px 0 8px 0;}
+#content_body .status:hover {background: #f7f7f7;}
+#content_body .avatar.left {width: 48px; margin: 0 8px 0 0;}
+#content_body .info.left {width: 444px; font-size: 14px;}
+#content_body .info .tweet {width: 425px;}
+#content_body .status .details {color: #999; font-size: 11px; min-height: 15px; padding: 3px 0 0 0;}
+#content_body .status .details a {color: #999;}
+#content_body .status .details a:hover {color: #999; text-decoration: underline;}
+#content_body .status .details .right {display: none;}
+body.logged_in #content_body .status:hover .details .right {display: block;}
+#content_body .status .details .right dd {height: 15px;}
+#content_body .status .details .right a {color: #2276bb; text-decoration: none;}
+#content_body .status .details .right a:hover {color: #2276bb; text-decoration: none;}
+#content_body .status .details .right a:hover span.link {text-decoration: underline;}
+#content_body .status .details .right .reply a span.link {padding: 1px 0 0 0; height: 14px; vertical-align: top;}
+#content_body .status .details .right .reply a span.icon {display: inline-block; background: url(http://s.twimg.com/a/1260214487/images/sprite-icons.png) 0 0 no-repeat; width: 15px; height: 15px; margin: 0 1px 0 0;}
+#content_body .status .details .right .reply a:hover span.icon {background-position: -16px 0;}
 
 
 #sidebar .box {padding: 9px 0 10px 0; margin: 0 14px 0 14px; border-top: 1px solid #c0deed;}
@@ -106,5 +127,7 @@ a:hover {color: #2276bb; text-decoration: underline;}
 #sidebar #account_links a.block.select {color: #333; font-weight: bold; background: #f7f7f7;}
 
 
-#footer {margin: 20px 0 0 0;}
+#flash_msgs {margin: 4px 0 0 0;}
+#flash_msgs p.flash {margin: 0 0 8px 0; border: 1px solid #ffff00; background: #ffffdf; padding: 10px;}
 
+#footer {margin: 20px 0 0 0;}

@@ -1,4 +1,9 @@
+$(document).bind('timeago.load', function() {$('.timeago').timeago();});
+
 $(document).ready(function() {
+  $(document).trigger('timeago.load');
+  setTimeout(function() {$(document).trigger('timeago.load');}, 1000);
+
   var chars_left = function() {
     var val = $(this).val(), limit = (140-val.length), klass = (limit < 10 ? 'hot' : (limit < 20 ? 'warm' : ''));
     $('#chars_left span').removeClass().addClass(klass).html(limit);
@@ -7,8 +12,3 @@ $(document).ready(function() {
 
   $('textarea#tweet').bind('chars_left', chars_left).bind('keyup', chars_left).bind('change', chars_left).bind('blur', chars_left).trigger('chars_left');
 });
-
-
-
-
-

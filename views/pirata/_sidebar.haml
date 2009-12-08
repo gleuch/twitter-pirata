@@ -40,7 +40,7 @@
           %span= configatron.user_listed
 
 #account_links
-  %a.block.select.c{:href => "http://www.twitter.com/#{configatron.twitter_account_name}"}
+  %a.block.c{:href => "http://www.twitter.com/#{configatron.twitter_account_name}"}
     .left= configatron.sidebar_tweets
     - unless @recipient_info.blank?
       .header.right= commify(@recipient_info['statuses_count'])
