@@ -1,0 +1,31 @@
+- unless !@error || @error.blank?
+  %p.flash.error= @error
+
+- if configatron.require_oauth_login && @user.blank?
+  - @content_for_notice = capture_haml do
+    .c
+      .left
+        %h1= configatron.welcome_title.gsub(/\%t/, configatron.twitter_account_name).gsub(/\%s/, configatron.site_name)
+        %p= configatron.welcome_message.gsub(/\%s/, configatron.site_name)
+      .right
+        %p
+          %a.button{:href => '/connect'}= configatron.welcome_button
+
+  = partial('guest_user_titlebar', :cache => true)
+
+
+- else
+  .titlebar.c
+    %h1.section.header.left Troll me!
+    #chars_left.chars.header.right
+      %span=(140-(params[:tweet] || '').length)
+    
+  %form#tweet_box{:action => '/', :method => 'post'}
+    %input{:type => 'hidden', :name => 'auth_token', :value => ''}
+
+    %fieldset
+      %label{:for => 'tweet'}
+      %textarea#tweet{:name => 'tweet'}= params[:tweet]
+    %fieldset.buttons.c
+      .left= partial('latest_tweet', :cache => true)
+      %button#tweet_submit.right= configatron.button_submit

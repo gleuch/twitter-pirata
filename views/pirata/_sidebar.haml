@@ -1,0 +1,74 @@
+- get_recipient_info if @recipient_info.nil?
+- get_recipient_friends if @recipient_friends.nil?
+- get_recipient_lists if @recipient_lists.nil?
+
+#account_info.box
+  %dl
+    - unless @recipient_info.blank?
+      - unless @recipient_info['name'].blank?
+        %dd
+          %strong= configatron.sidebar_name
+          = @recipient_info['name']
+      - unless @recipient_info['location'].blank?
+        %dd
+          %strong= configatron.sidebar_location
+          = @recipient_info['location']
+      - unless @recipient_info['url'].blank?
+        %dd
+          %strong= configatron.sidebar_web
+          %a{:href => @recipient_info['url'], :target => '_blank'}= @recipient_info['url']
+      - unless @recipient_info['description'].blank?
+        %dd
+          %strong= configatron.sidebar_about
+          = @recipient_info['description']
+    - else
+      %dd
+        %strong= configatron.sidebar_name
+        = configatron.twitter_account_name
+
+  - unless @recipient_info.blank?
+    #account_stats.c
+      %a.inblock.left{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/following"}
+        .num.header= commify(@recipient_info['friends_count'])
+        %span= configatron.user_friends
+      %a.inblock.left{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/followers"}
+        .num.header= commify(@recipient_info['followers_count'])
+        %span= configatron.user_followers
+      - if false
+        %a.inblock.left{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/lists/memberships"}
+          .num.header= commify(@recipient_info['description'])
+          %span= configatron.user_listed
+
+#account_links
+  %a.block.select.c{:href => "http://www.twitter.com/#{configatron.twitter_account_name}"}
+    .left= configatron.sidebar_tweets
+    - unless @recipient_info.blank?
+      .header.right= commify(@recipient_info['statuses_count'])
+  %a.block{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/favorites"}= configatron.sidebar_favorites
+
+- unless !@recipient_lists['lists'] || @recipient_lists['lists'].blank?
+  #account_lists.box
+    %dl
+      %dt= configatron.sidebar_lists
+      - @recipient_lists['lists'][0..5].each do |list|
+        %dd
+          %a{:href => "http://www.twitter.com#{list['uri']}"}= list['full_name']
+      - if @recipient_lists['lists'].length > 6
+        %dd.smaller
+          %a{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/lists"}= configatron.view_all
+
+#account_friends.box
+  %dl
+    %dt= configatron.sidebar_following
+    - unless @recipient_friends.blank?
+      - @recipient_friends[0..29].each do |friend|
+        %dd.photo
+          %a{:href => "http://www.twitter.com/#{friend['screen_name']}"}
+            %img{:src => friend['profile_image_url'].gsub(/\_normal(\.[A-Z]+)$/i, '_mini\1'), :title => friend['screen_name'], :alt => friend['screen_name']}
+    - else
+      %dd.suggest= configatron.sidebar_no_friends
+    %dd.smaller
+      %a{:href => "http://www.twitter.com/#{configatron.twitter_account_name}/following"}= configatron.view_all
+
+#account_rss.box
+  %a.inblock.rss{:href => "http://twitter.com/statuses/user_timeline/#{configatron.twitter_account_name}.rss", :rel => "alternate", :type => "application/rss+xml"}= configatron.user_rss_feed.gsub(/\%t/,  possessiveify(configatron.twitter_account_name))

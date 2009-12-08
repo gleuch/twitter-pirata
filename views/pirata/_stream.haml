@@ -1,0 +1,28 @@
+- get_recipient_stream if @recipient_stream.nil?
+
+%h3.section.header Home
+
+- unless @recipient_stream.blank?
+  - @recipient_stream.each do |status|
+
+    - # We should respect a user's privacy to be protected since this will be publically visible on the web.
+    - next if status['user']['protected']
+
+    .status.c
+      .avatar.left
+        %img{:src => status['user']['profile_image_url'], :alt => '', :title => '', :width => 48, :height => 48}
+      .info.left
+        .tweet
+          %strong= user_profile_url(status['user']['screen_name'], false)
+          = parse_tweet(status['text'])
+        .details
+          %a{:href => "http://www.twitter.com/#{status['user']['screen_name'] || ''}/status/#{status['id']}", :target => '_blank'} timestamp
+          timestamp
+          - unless status['in_reply_to_status'].blank? && status['in_reply_to_user_id'].blank? && status['in_reply_to_screen_name'].blank?
+            in reply to
+          - unless status['source'].blank?
+            from #{status['source']}
+
+
+- else
+  %p.suggest #{possessiveify configatron.twitter_account_name} stream is blank!
