@@ -333,3 +333,14 @@ get '/about' do
   @hide_stream = true
   haml :about
 end
+
+get '/expire_all' do
+  expire '_stream'
+  expire '_latest_tweet'
+  expire '_sidebar'
+  expire '_user_styles'
+  expire '_guest_user_titlebar'
+
+  "Cache cleared. #{(configatron.enable_memcache && Sinatra::Application.environment.to_s == 'production' ? 'yes' : 'no')}"
+end
+
